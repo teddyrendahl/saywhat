@@ -1,2 +1,8 @@
 /target
 .idea/*
+py-saywhat/target
+__pycache__/
+env/
+venv/
+.env/
+./venv
