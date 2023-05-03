@@ -1,0 +1,18 @@
+[build-system]
+requires = ["maturin>=0.14"]
+build-backend = "maturin"
+
+[project]
+name = "saywhat"
+license = { file = "../LICENSE" }
+keywords = [
+  "rust",
+]
+authors = [{ name = "Teddy Rendahl" }]
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Rust",
+]
+
+[project.optional-dependencies]
+dev = ["maturin", "pytest"]
