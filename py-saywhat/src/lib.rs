@@ -4,6 +4,7 @@ mod distance {
     use pyo3::prelude::*;
 
     #[pyfunction]
+    #[pyo3(signature = (s1, s2, substitution_cost = 1, transpositions = false))]
     pub fn edit_distance(
         s1: String,
         s2: String,
