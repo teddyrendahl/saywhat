@@ -38,9 +38,28 @@ jobs:
 
       - name: Run cargo test
         uses: actions-rs/cargo@v1
-        continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: test
+
+      - name: Install deps
+        run: pip install pytest
+
+      - name: Build Wheels with maturin
+        uses: messense/maturin-action@v1
+        with:
+          target: x86_64
+          manylinux: auto
+          command: build
+          args: --release --strip --interpreter python3.11 --manifest-path py-saywhat/Cargo.toml --out dist
+
+      - name: Install wheel
+        run: pip install saywhat --no-index --find-links dist --no-deps --force-reinstall
+
+      - name: Run Package Tests
+        run: |
+          cd py-saywhat
+          pytest tests
+          cd ..
 
   lints:
     name: Lints
