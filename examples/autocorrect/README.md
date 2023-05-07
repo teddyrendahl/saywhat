@@ -1,7 +1,15 @@
 # AutoCorrect
 
 A widget that used edit distance to guess the closest words to a provided value
-
+## Installation
+This example requires compilation to WebAssembly. Install the compilation target:
+```bash
+rustup target add wasm32-unknown-unknown
+```
+It's recommended to use `trunk` to manage deployment. Install via `cargo`
+```bash
+cargo install --locked trunk
+```
 ## Running
 ```bash
 trunk serve --release
